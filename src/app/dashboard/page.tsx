@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/context/auth-context';
+import Link from 'next/link';
 import { api } from '@/lib/api';
 
 interface Factura {
@@ -42,17 +43,25 @@ export default function DashboardPage() {
   return (
     <main className="flex-1 px-4 py-8 max-w-2xl mx-auto w-full">
       <div className="flex items-center justify-between mb-8">
-        <div>
-          <h1 className="text-2xl font-semibold text-neutral-900">Mis facturas</h1>
-          <p className="text-sm text-neutral-600">Hola, {usuario?.nombre}</p>
-        </div>
-        <button
-          onClick={logout}
-          className="text-sm font-medium text-neutral-600 hover:text-neutral-900"
-        >
-          Cerrar sesión
-        </button>
-      </div>
+  <div>
+    <h1 className="text-2xl font-semibold text-neutral-900">Mis facturas</h1>
+    <p className="text-sm text-neutral-600">Hola, {usuario?.nombre}</p>
+  </div>
+  <div className="flex items-center gap-4">
+    <Link
+      href="/facturas/nueva"
+      className="rounded-md bg-neutral-900 px-3 py-1.5 text-sm font-medium text-white hover:bg-neutral-800"
+    >
+      + Nueva factura
+    </Link>
+    <button
+      onClick={logout}
+      className="text-sm font-medium text-neutral-600 hover:text-neutral-900"
+    >
+      Cerrar sesión
+    </button>
+  </div>
+</div>
 
       {loadingFacturas ? (
         <p className="text-neutral-600">Cargando...</p>

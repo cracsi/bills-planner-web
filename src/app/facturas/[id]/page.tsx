@@ -25,6 +25,12 @@ interface Pago {
   cuentaDePagoId: string;
 }
 
+interface Recordatorio {
+  id: string;
+  diasAntes: number;
+  mensaje: string;
+}
+
 export default function FacturaDetailPage() {
   const { token, loading } = useAuth();
   const router = useRouter();
@@ -42,6 +48,10 @@ export default function FacturaDetailPage() {
   const [error, setError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
 
+  const [recordatorios, setRecordatorios] = useState<Recordatorio[]>([]);
+const [diasAntes, setDiasAntes] = useState('');
+const [mensaje, setMensaje] = useState('');
+
   useEffect(() => {
     if (!loading && !token) {
       router.push('/login');
@@ -52,19 +62,21 @@ export default function FacturaDetailPage() {
     if (!token || !facturaId) return;
 
     Promise.all([
-      api.get<Factura>(`/facturas/${facturaId}`, token),
-      api.get<Pago[]>(`/pagos?facturaId=${facturaId}`, token),
-      api.get<CuentaDePago[]>('/cuentas-de-pago', token),
-    ])
-      .then(([facturaData, pagosData, cuentasData]) => {
-        setFactura(facturaData);
-        setPagos(pagosData);
-        setCuentas(cuentasData);
-        if (cuentasData.length > 0) {
-          setCuentaDePagoId(cuentasData[0].id);
-        }
-      })
-      .finally(() => setLoadingData(false));
+  api.get<Factura>(`/facturas/${facturaId}`, token),
+  api.get<Pago[]>(`/pagos?facturaId=${facturaId}`, token),
+  api.get<CuentaDePago[]>('/cuentas-de-pago', token),
+  api.get<Recordatorio[]>(`/recordatorios?facturaId=${facturaId}`, token),
+])
+  .then(([facturaData, pagosData, cuentasData, recordatoriosData]) => {
+    setFactura(facturaData);
+    setPagos(pagosData);
+    setCuentas(cuentasData);
+    setRecordatorios(recordatoriosData);
+    if (cuentasData.length > 0) {
+      setCuentaDePagoId(cuentasData[0].id);
+    }
+  })
+  .finally(() => setLoadingData(false));
   }, [token, facturaId]);
 
   async function handleSubmit(e: FormEvent) {
@@ -88,6 +100,29 @@ export default function FacturaDetailPage() {
       setSubmitting(false);
     }
   }
+
+  async function handleSubmitRecordatorio(e: FormEvent) {
+  e.preventDefault();
+  setError(null);
+  setSubmitting(true);
+
+  try {
+    const nuevoRecordatorio = await api.post<Recordatorio>(
+      '/recordatorios',
+      { facturaId, diasAntes: Number(diasAntes), mensaje },
+      token,
+    );
+    setRecordatorios((prev) => [...prev, nuevoRecordatorio]);
+    setDiasAntes('');
+    setMensaje('');
+  } catch (err) {
+    setError(
+      err instanceof ApiError ? err.message : 'Error al crear el recordatorio',
+    );
+  } finally {
+    setSubmitting(false);
+  }
+}
 
   if (loading || !token || loadingData) {
     return null;

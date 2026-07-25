@@ -76,29 +76,31 @@ export default function DashboardPage() {
       ) : (
         <ul className="space-y-3">
           {facturas.map((factura) => (
-            <li
-              key={factura.id}
-              className="flex items-center justify-between rounded-lg border border-neutral-200 bg-white px-4 py-3"
-            >
-              <div>
-                <p className="font-medium text-neutral-900">{factura.nombre}</p>
-                <p className="text-sm text-neutral-600">
-                  Vence: {factura.fechaVencimiento ?? 'sin definir'}
-                </p>
-              </div>
-              <div className="text-right">
-                <p className="font-medium text-neutral-900">
-                  ${factura.valor.toFixed(2)}
-                </p>
-                <span
-                  className={`text-xs font-medium ${
-                    factura.pagado ? 'text-green-600' : 'text-amber-600'
-                  }`}
-                >
-                  {factura.pagado ? 'Pagada' : 'Pendiente'}
-                </span>
-              </div>
-            </li>
+            <li key={factura.id}>
+  <Link
+    href={`/facturas/${factura.id}`}
+    className="flex items-center justify-between rounded-lg border border-neutral-200 bg-white px-4 py-3 hover:border-neutral-400 transition-colors"
+  >
+    <div>
+      <p className="font-medium text-neutral-900">{factura.nombre}</p>
+      <p className="text-sm text-neutral-600">
+        Vence: {factura.fechaVencimiento ?? 'sin definir'}
+      </p>
+    </div>
+    <div className="text-right">
+      <p className="font-medium text-neutral-900">
+        ${factura.valor.toFixed(2)}
+      </p>
+      <span
+        className={`text-xs font-medium ${
+          factura.pagado ? 'text-green-600' : 'text-amber-600'
+        }`}
+      >
+        {factura.pagado ? 'Pagada' : 'Pendiente'}
+      </span>
+    </div>
+  </Link>
+</li>
           ))}
         </ul>
       )}

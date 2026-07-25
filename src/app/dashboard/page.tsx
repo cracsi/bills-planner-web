@@ -48,19 +48,25 @@ export default function DashboardPage() {
     <p className="text-sm text-neutral-600">Hola, {usuario?.nombre}</p>
   </div>
   <div className="flex items-center gap-4">
-    <Link
-      href="/facturas/nueva"
-      className="rounded-md bg-neutral-900 px-3 py-1.5 text-sm font-medium text-white hover:bg-neutral-800"
-    >
-      + Nueva factura
-    </Link>
-    <button
-      onClick={logout}
-      className="text-sm font-medium text-neutral-600 hover:text-neutral-900"
-    >
-      Cerrar sesión
-    </button>
-  </div>
+  <Link
+    href="/cuentas-de-pago"
+    className="text-sm font-medium text-neutral-600 hover:text-neutral-900"
+  >
+    Cuentas de pago
+  </Link>
+  <Link
+    href="/facturas/nueva"
+    className="rounded-md bg-neutral-900 px-3 py-1.5 text-sm font-medium text-white hover:bg-neutral-800"
+  >
+    + Nueva factura
+  </Link>
+  <button
+    onClick={logout}
+    className="text-sm font-medium text-neutral-600 hover:text-neutral-900"
+  >
+    Cerrar sesión
+  </button>
+</div>
 </div>
 
       {loadingFacturas ? (

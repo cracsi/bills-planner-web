@@ -232,7 +232,66 @@ const [mensaje, setMensaje] = useState('');
             {submitting ? 'Guardando...' : 'Registrar pago'}
           </button>
         </form>
+
       )}
+      <h2 className="text-lg font-medium text-neutral-900 mt-8 mb-3">Recordatorios</h2>
+{recordatorios.length === 0 ? (
+  <p className="text-neutral-600 mb-6">Sin recordatorios configurados.</p>
+) : (
+  <ul className="space-y-2 mb-6">
+    {recordatorios.map((r) => (
+      <li
+        key={r.id}
+        className="rounded-lg border border-neutral-200 bg-white px-4 py-2 text-sm"
+      >
+        <span className="font-medium">{r.diasAntes} días antes:</span> {r.mensaje}
+      </li>
+    ))}
+  </ul>
+)}
+
+<form onSubmit={handleSubmitRecordatorio} className="space-y-4">
+  <div>
+    <label htmlFor="diasAntes" className="block text-sm font-medium text-neutral-700">
+      Días antes del vencimiento
+    </label>
+    <input
+      id="diasAntes"
+      type="number"
+      min="0"
+      required
+      value={diasAntes}
+      onChange={(e) => setDiasAntes(e.target.value)}
+      placeholder="3"
+      className="mt-1 w-full rounded-md border border-neutral-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-900"
+    />
+  </div>
+
+  <div>
+    <label htmlFor="mensaje" className="block text-sm font-medium text-neutral-700">
+      Mensaje
+    </label>
+    <input
+      id="mensaje"
+      type="text"
+      required
+      value={mensaje}
+      onChange={(e) => setMensaje(e.target.value)}
+      placeholder="Tu factura vence pronto"
+      className="mt-1 w-full rounded-md border border-neutral-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-900"
+    />
+  </div>
+
+  {error && <p className="text-sm text-red-600">{error}</p>}
+
+  <button
+    type="submit"
+    disabled={submitting}
+    className="w-full rounded-md bg-neutral-900 px-4 py-2 text-sm font-medium text-white hover:bg-neutral-800 disabled:opacity-50"
+  >
+    {submitting ? 'Guardando...' : 'Agregar recordatorio'}
+  </button>
+</form>
     </main>
   );
 }

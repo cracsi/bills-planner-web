@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Getting started
 
-## Getting Started
+### 1. Make sure the backend is running
 
-First, run the development server:
+This app expects `bills-planner-api` running locally (see that repo's README).
+
+### 2. Configure environment
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+cp .env.local.example .env.local
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Adjust `NEXT_PUBLIC_API_URL` if your backend runs on a different port/host.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3. Install dependencies
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm install
+```
 
-## Learn More
+### 4. Run the dev server
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run dev -- -p 3001
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+(Port 3001 since the backend typically runs on 3000.)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Design notes
 
-## Deploy on Vercel
+- **Auth token storage:** currently stored in `localStorage` via
+  `auth-context.tsx`. This is simple and fine for a portfolio project, but
+  worth knowing the tradeoff: it's vulnerable to XSS in a way that an
+  `httpOnly` cookie wouldn't be. A more production-hardened version would
+  move token storage to a cookie set by the backend. Noted here as a
+  deliberate simplification, not an oversight.
+- **`api.ts`** is a thin wrapper, not a full client library — every call
+  passes the token explicitly rather than relying on global state, keeping
+  it framework-agnostic and easy to reason about.
+- **`MetodoDePago` has no management UI yet** — the global payment-method
+  catalog must currently be seeded directly via the API (e.g. Postman). The
+  `cuentas-de-pago` page reads from it but can't create new global methods.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Roadmap (not yet built)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [ ] `MetodoDePago` management UI (currently API-only)
+- [ ] Editing/deleting facturas, cuentas de pago, recordatorios (currently
+      create + read only)
+- [ ] Form validation feedback matching backend DTO rules more closely
+- [ ] Deployment to Vercel
+- [ ] Responsive/mobile polish pass

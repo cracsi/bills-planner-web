@@ -62,7 +62,7 @@ export default function CuentasDePagoPage() {
 
     try {
       const nueva = await api.post<CuentaDePago>(
-        '/cuentas-de-pago',
+        '/cuentas-de-pago', 
         { metodoPagoId, alias, datos },
         token,
       );
@@ -85,7 +85,7 @@ export default function CuentasDePagoPage() {
   return (
     <main className="flex-1 px-4 py-8 max-w-md mx-auto w-full">
       <h1 className="text-2xl font-semibold text-neutral-900 mb-6">
-        Mis cuentas de pago
+        Mis cuentas de pago  
       </h1>
 
       {loadingData ? (

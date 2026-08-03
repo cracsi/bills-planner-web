@@ -55,11 +55,11 @@ export default function DashboardPage() {
     Cuentas de pago
   </Link>
   <Link
-    href="/facturas/nueva"
-    className="rounded-md bg-neutral-900 px-3 py-1.5 text-sm font-medium text-white hover:bg-neutral-800"
-  >
-    + Nueva factura
-  </Link>
+  href="/facturas/nueva"
+  className="rounded-md bg-emerald-600 px-3 py-1.5 text-sm font-medium text-white hover:bg-emerald-700"
+>
+  + Nueva factura
+</Link>
   <button
     onClick={logout}
     className="text-sm font-medium text-neutral-600 hover:text-neutral-900"
@@ -72,7 +72,7 @@ export default function DashboardPage() {
       {loadingFacturas ? (
         <p className="text-neutral-600">Cargando...</p>
       ) : facturas.length === 0 ? (
-        <p className="text-neutral-600">Aún no tienes facturas registradas.</p>
+        <p className="font-medium text-sky-700 underline hover:text-sky-800">Aún no tienes facturas registradas.</p>
       ) : (
         <ul className="space-y-3">
           {facturas.map((factura) => (

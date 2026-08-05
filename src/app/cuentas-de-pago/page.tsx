@@ -99,7 +99,7 @@ export default function CuentasDePagoPage() {
               {cuentas.map((cuenta) => (
                 <li
                   key={cuenta.id}
-                  className="rounded-lg border border-neutral-200 bg-white px-4 py-3"
+                  className="rounded-lg border border-neutral-200 bg-white shadow-sm hover:shadow-md transition-shadow px-4 py-3"
                 >
                   <p className="font-medium text-neutral-900">{cuenta.alias}</p>
                   <p className="text-sm text-neutral-600">{cuenta.datos}</p>

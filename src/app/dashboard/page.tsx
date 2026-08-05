@@ -79,7 +79,7 @@ export default function DashboardPage() {
             <li key={factura.id}>
   <Link
     href={`/facturas/${factura.id}`}
-    className="flex items-center justify-between rounded-lg border border-neutral-200 bg-white px-4 py-3 hover:border-neutral-400 transition-colors"
+    className="flex items-center justify-between rounded-lg border border-neutral-200 bg-white shadow-sm hover:shadow-md transition-shadow px-4 py-3 hover:border-neutral-400 transition-colors"
   >
     <div>
       <p className="font-medium text-neutral-900">{factura.nombre}</p>

@@ -156,7 +156,7 @@ const [mensaje, setMensaje] = useState('');
           {pagos.map((pago) => (
             <li
               key={pago.id}
-              className="flex justify-between rounded-lg border border-neutral-200 bg-white px-4 py-2 text-sm"
+              className="flex justify-between rounded-lg border border-neutral-200 bg-white shadow-sm hover:shadow-md transition-shadow px-4 py-2 text-sm"
             >
               <span>{pago.fecha}</span>
               <span className="font-medium">${pago.valor.toFixed(2)}</span>
@@ -242,7 +242,7 @@ const [mensaje, setMensaje] = useState('');
     {recordatorios.map((r) => (
       <li
         key={r.id}
-        className="rounded-lg border border-neutral-200 bg-white px-4 py-2 text-sm"
+        className="rounded-lg border border-neutral-200 bg-white shadow-sm hover:shadow-md transition-shadow px-4 py-2 text-sm"
       >
         <span className="font-medium">{r.diasAntes} días antes:</span> {r.mensaje}
       </li>

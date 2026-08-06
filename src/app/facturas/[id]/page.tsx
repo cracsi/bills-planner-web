@@ -182,7 +182,7 @@ const [mensaje, setMensaje] = useState('');
               required
               value={cuentaDePagoId}
               onChange={(e) => setCuentaDePagoId(e.target.value)}
-              className="mt-1 w-full rounded-md border border-neutral-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-900"
+              className="mt-1 w-full rounded-lg border border-neutral-300 bg-neutral-50 px-3 py-2 transition-colors focus:bg-white text-sm focus:outline-none focus:ring-2 focus:ring-neutral-900"
             >
               {cuentas.map((cuenta) => (
                 <option key={cuenta.id} value={cuenta.id}>
@@ -204,7 +204,7 @@ const [mensaje, setMensaje] = useState('');
               required
               value={valor}
               onChange={(e) => setValor(e.target.value)}
-              className="mt-1 w-full rounded-md border border-neutral-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-900"
+              className="mt-1 w-full rounded-lg border border-neutral-300 bg-neutral-50 px-3 py-2 transition-colors focus:bg-white text-sm focus:outline-none focus:ring-2 focus:ring-neutral-900"
             />
           </div>
 
@@ -218,7 +218,7 @@ const [mensaje, setMensaje] = useState('');
               required
               value={fecha}
               onChange={(e) => setFecha(e.target.value)}
-              className="mt-1 w-full rounded-md border border-neutral-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-900"
+              className="mt-1 w-full rounded-lg border border-neutral-300 bg-neutral-50 px-3 py-2 transition-colors focus:bg-white text-sm focus:outline-none focus:ring-2 focus:ring-neutral-900"
             />
           </div>
 
@@ -263,7 +263,7 @@ const [mensaje, setMensaje] = useState('');
       value={diasAntes}
       onChange={(e) => setDiasAntes(e.target.value)}
       placeholder="3"
-      className="mt-1 w-full rounded-md border border-neutral-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-900"
+      className="mt-1 w-full rounded-lg border border-neutral-300 bg-neutral-50 px-3 py-2 transition-colors focus:bg-white text-sm focus:outline-none focus:ring-2 focus:ring-neutral-900"
     />
   </div>
 
@@ -278,7 +278,7 @@ const [mensaje, setMensaje] = useState('');
       value={mensaje}
       onChange={(e) => setMensaje(e.target.value)}
       placeholder="Tu factura vence pronto"
-      className="mt-1 w-full rounded-md border border-neutral-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-900"
+      className="mt-1 w-full rounded-lg border border-neutral-300 bg-neutral-50 px-3 py-2 transition-colors focus:bg-white text-sm focus:outline-none focus:ring-2 focus:ring-neutral-900"
     />
   </div>
 

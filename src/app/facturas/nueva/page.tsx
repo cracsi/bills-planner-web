@@ -71,7 +71,7 @@ export default function NuevaFacturaPage() {
             value={nombre}
             onChange={(e) => setNombre(e.target.value)}
             placeholder="Netflix"
-            className="mt-1 w-full rounded-md border border-neutral-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-900"
+            className="mt-1 w-full rounded-lg border border-neutral-300 bg-neutral-50 px-3 py-2 transition-colors focus:bg-white text-sm focus:outline-none focus:ring-2 focus:ring-neutral-900"
           />
         </div>
 
@@ -87,7 +87,7 @@ export default function NuevaFacturaPage() {
             required
             value={valor}
             onChange={(e) => setValor(e.target.value)}
-            className="mt-1 w-full rounded-md border border-neutral-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-900"
+            className="mt-1 w-full rounded-lg border border-neutral-300 bg-neutral-50 px-3 py-2 transition-colors focus:bg-white text-sm focus:outline-none focus:ring-2 focus:ring-neutral-900"
           />
         </div>
 
@@ -105,7 +105,7 @@ export default function NuevaFacturaPage() {
               value={diaVencimiento}
               onChange={(e) => setDiaVencimiento(e.target.value)}
               placeholder="15"
-              className="mt-1 w-full rounded-md border border-neutral-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-900"
+              className="mt-1 w-full rounded-lg border border-neutral-300 bg-neutral-50 px-3 py-2 transition-colors focus:bg-white text-sm focus:outline-none focus:ring-2 focus:ring-neutral-900"
             />
           </div>
 
@@ -121,7 +121,7 @@ export default function NuevaFacturaPage() {
               value={diaSuspension}
               onChange={(e) => setDiaSuspension(e.target.value)}
               placeholder="5"
-              className="mt-1 w-full rounded-md border border-neutral-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-900"
+              className="mt-1 w-full rounded-lg border border-neutral-300 bg-neutral-50 px-3 py-2 transition-colors focus:bg-white text-sm focus:outline-none focus:ring-2 focus:ring-neutral-900"
             />
           </div>
         </div>
@@ -135,7 +135,7 @@ export default function NuevaFacturaPage() {
             type="text"
             value={descripción}
             onChange={(e) => setDescripción(e.target.value)}
-            className="mt-1 w-full rounded-md border border-neutral-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-900"
+            className="mt-1 w-full rounded-lg border border-neutral-300 bg-neutral-50 px-3 py-2 transition-colors focus:bg-white text-sm focus:outline-none focus:ring-2 focus:ring-neutral-900"
           />
         </div>
 

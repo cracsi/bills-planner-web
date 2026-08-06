@@ -49,7 +49,7 @@ export default function RegisterPage() {
               required
               value={nombre}
               onChange={(e) => setNombre(e.target.value)}
-              className="mt-1 w-full rounded-md border border-neutral-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-900"
+              className="mt-1 w-full rounded-lg border border-neutral-300 bg-neutral-50 px-3 py-2 transition-colors focus:bg-white text-sm focus:outline-none focus:ring-2 focus:ring-neutral-900"
             />
           </div>
 
@@ -63,7 +63,7 @@ export default function RegisterPage() {
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="mt-1 w-full rounded-md border border-neutral-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-900"
+              className="mt-1 w-full rounded-lg border border-neutral-300 bg-neutral-50 px-3 py-2 transition-colors focus:bg-white text-sm focus:outline-none focus:ring-2 focus:ring-neutral-900"
             />
           </div>
 
@@ -78,7 +78,7 @@ export default function RegisterPage() {
               minLength={8}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="mt-1 w-full rounded-md border border-neutral-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-neutral-900"
+              className="mt-1 w-full rounded-lg border border-neutral-300 bg-neutral-50 px-3 py-2 transition-colors focus:bg-white text-sm focus:outline-none focus:ring-2 focus:ring-neutral-900"
             />
           </div>
 

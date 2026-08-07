@@ -33,9 +33,10 @@ export default function LoginPage() {
   return (
     <main className="flex flex-1 items-center justify-center px-4">
       <div className="w-full max-w-sm">
-        <h1 className="text-2xl font-semibold text-neutral-900 mb-6">
-          Iniciar sesión
-        </h1>
+        <div className="border-l-4 border-sky-600 pl-3">
+  <h1 className="text-2xl font-semibold text-neutral-900">Iniciar Sesión</h1>
+</div>
+          
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>

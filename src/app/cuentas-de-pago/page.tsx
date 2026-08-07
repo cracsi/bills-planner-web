@@ -84,10 +84,11 @@ export default function CuentasDePagoPage() {
 
   return (
     <main className="flex-1 px-4 py-8 max-w-md mx-auto w-full">
-      <h1 className="text-2xl font-semibold text-neutral-900 mb-6">
-        Mis cuentas de pago  
-      </h1>
-
+      <div className="border-l-4 border-sky-600 pl-3">
+  <h1 className="text-2xl font-semibold text-neutral-900">Mis facturas</h1>
+  
+</div>
+      
       {loadingData ? (
         <p className="text-neutral-600">Cargando...</p>
       ) : (
